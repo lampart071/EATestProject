@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using EAAutoFramework.Base;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,13 @@ using System.Threading.Tasks;
 
 namespace EAEmployeeTest.Pages
 {
-    class LoginPage
+    class LoginPage : BasePage
     {
         //Initilaize page
-        public LoginPage(IWebDriver driver)
+        public LoginPage(IWebDriver driver) :
+            base(driver)
         {
-            PageFactory.InitElements(driver, this);
+
         }
 
         //Objects for login page
