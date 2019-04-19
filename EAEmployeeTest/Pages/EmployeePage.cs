@@ -11,13 +11,6 @@ namespace EAEmployeeTest.Pages
 {
     class EmployeePage : BasePage
     {
-        //Initilaize page
-        public EmployeePage(IWebDriver driver) :
-            base(driver)
-        {
-
-        }
-
         //Objects for login page
         [FindsBy(How = How.Name, Using = "searchTerm")]
         public IWebElement lnkLogin { get; set; }
