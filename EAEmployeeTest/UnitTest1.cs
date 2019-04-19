@@ -1,4 +1,5 @@
 ﻿using System;
+using EAAutoFramework.Base;
 using EAEmployeeTest.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -10,15 +11,12 @@ namespace EAEmployeeTest
     public class UnitTest1
     {
         string url = "http://localhost:64429/";
-        private IWebDriver _driver;
-
-
 
         [TestMethod]
         public void TestMethod1()
         {
-            _driver = new FirefoxDriver();
-            _driver.Navigate().GoToUrl(url);
+            DriverContext.Driver = new FirefoxDriver();
+            DriverContext.Driver.Navigate().GoToUrl(url);
 
             Login();
 
@@ -26,13 +24,6 @@ namespace EAEmployeeTest
 
         public void Login()
         {
-            LoginPage page = new LoginPage(_driver);
-            page.lnkLogin.Click();
-            page.txtUserName.SendKeys("admin");
-            page.txtPassword.SendKeys("password");
-            page.btnLogin.Submit();
-
-
             //_driver.FindElement(By.LinkText("Login")).Click();
 
             ////UserName
@@ -41,6 +32,14 @@ namespace EAEmployeeTest
 
             ////click Login
             //_driver.FindElement(By.CssSelector("input.btn")).Submit();
-        }
+
+            LoginPage page = new LoginPage();
+            page.lnkLogin.Click();
+            page.txtUserName.SendKeys("admin");
+            page.txtPassword.SendKeys("password");
+            page.btnLogin.Submit();
+
+            //EmployeePage empPage = new EmployeePage();
+         }
     }
 }
