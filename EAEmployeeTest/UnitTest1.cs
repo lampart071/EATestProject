@@ -1,5 +1,6 @@
 ﻿using System;
 using EAAutoFramework.Base;
+using EAAutoFramework.Helpers;
 using EAEmployeeTest.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -36,12 +37,17 @@ namespace EAEmployeeTest
         [TestMethod]
         public void TestMethod1()
         {
+            string fileName = Environment.CurrentDirectory.ToString() + "\\Data\\Login.xlsx";
+            ExcelHelpers.PopulateInCollection(fileName);
+
+
             OpenBrowser(BrowserType.FireFox);
             DriverContext.Driver.Navigate().GoToUrl(url);
             //LoginPage
             CurrentPage = GetInstance<LoginPage>();
             CurrentPage.As<LoginPage>().ClickLoginLink();
-            CurrentPage.As<LoginPage>().Login("admin", "password");
+            CurrentPage.As<LoginPage>().Login(ExcelHelpers.ReadData(1, "UserName"), ExcelHelpers.ReadData(1, "Password"));
+            //CurrentPage.As<LoginPage>().Login("admin", "password");
             //EmployeePage
             CurrentPage = CurrentPage.As<LoginPage>().ClickEmployeeList();
             CurrentPage.As<EmployeePage>().ClickCreateNew();
