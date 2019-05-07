@@ -17,20 +17,13 @@ namespace EAEmployeeTest
         {
             DriverContext.Driver = new FirefoxDriver();
             DriverContext.Driver.Navigate().GoToUrl(url);
-
-            LoginPage page = new LoginPage();
-            page.ClickLoginLink();
-            page.Login("admin", "password");
-
-            //CurrentPage = page.ClickEmployeeList();
-            //((EmployeePage)CurrentPage).ClickCreateNew();
-
-            //EmployeePage employeePage = page.ClickEmployeeList();
-            //employeePage.ClickCreateNew();
-
-            CurrentPage = page.ClickEmployeeList();
-            ((EmployeePage)CurrentPage).ClickCreateNew();
-
+            //LoginPage
+            CurrentPage = GetInstance<LoginPage>();
+            CurrentPage.As<LoginPage>().ClickLoginLink();
+            CurrentPage.As<LoginPage>().Login("admin", "password");
+            //EmployeePage
+            CurrentPage = CurrentPage.As<LoginPage>().ClickEmployeeList();
+            CurrentPage.As<EmployeePage>().ClickCreateNew();
         }
 
 
