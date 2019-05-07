@@ -13,6 +13,15 @@ namespace EAEmployeeTest.Pages
     {
         //Objects for login page
         [FindsBy(How = How.Name, Using = "searchTerm")]
-        public IWebElement lnkLogin { get; set; }
+        public IWebElement txtSearch { get; set; }
+
+        [FindsBy(How = How.LinkText, Using = "Create New")]
+        public IWebElement lnkCreateNew { get; set; }
+
+        public CreateEmployeePage ClickCreateNew()
+        {
+            lnkCreateNew.Click();
+            return new CreateEmployeePage();
+        }
     }
 }
