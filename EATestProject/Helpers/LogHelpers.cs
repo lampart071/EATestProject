@@ -35,5 +35,12 @@ namespace EAAutoFramework.Helpers
             _streamw.WriteLine("    {0}", logMessage);
             _streamw.Flush();
         }
+        public static void CloseLog()
+        {
+            _streamw.Write("{0} {1}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongTimeString());
+            _streamw.WriteLine("End of the log");
+            _streamw.Flush();
+            _streamw.Close();
+        }
     }
 }

@@ -55,6 +55,7 @@ namespace EAEmployeeTest
             //EmployeePage
             CurrentPage = CurrentPage.As<LoginPage>().ClickEmployeeList();
             CurrentPage.As<EmployeePage>().ClickCreateNew();
+            LogHelpers.CloseLog();
         }
 
         [TestMethod]
@@ -81,6 +82,7 @@ namespace EAEmployeeTest
 
             HtmlTableHelpers.ReadTable(table);
             HtmlTableHelpers.PerformActionOnCell("6", "Name", "Ramesh", "Edit");
+            LogHelpers.CloseLog();
         }
     }
 }

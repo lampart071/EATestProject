@@ -2,12 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using ExcelDataReader;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
 
 namespace EAAutoFramework.Helpers
 {
@@ -61,9 +57,10 @@ namespace EAAutoFramework.Helpers
 
                     DataTableCollection table = result.Tables;
                     DataTable resultTable = table["Sheet1"];
+                    reader.Close();
                     return resultTable;
                 }
-            }
+            }            
         }
 
         public static string ReadData(int rowNumber, string columnName)
