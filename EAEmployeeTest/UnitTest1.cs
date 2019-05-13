@@ -56,6 +56,31 @@ namespace EAEmployeeTest
             CurrentPage = CurrentPage.As<LoginPage>().ClickEmployeeList();
             CurrentPage.As<EmployeePage>().ClickCreateNew();
         }
-        
+
+        [TestMethod]
+        public void TableOperation()
+        {
+            string fileName = Environment.CurrentDirectory.ToString() + "\\Data\\Login.xlsx";
+            ExcelHelpers.PopulateInCollection(fileName);
+
+            LogHelpers.CreateLogFile();
+
+            OpenBrowser(BrowserType.FireFox);
+            LogHelpers.Write("Opened the browser !!!");
+
+            DriverContext.Driver.Navigate().GoToUrl(url);
+            LogHelpers.Write("Navigated to the page !!!");
+
+            CurrentPage = GetInstance<LoginPage>();
+            CurrentPage.As<LoginPage>().ClickLoginLink();
+            CurrentPage.As<LoginPage>().Login(ExcelHelpers.ReadData(1, "UserName"), ExcelHelpers.ReadData(1, "Password"));
+            //EmployeePage
+            CurrentPage = CurrentPage.As<LoginPage>().ClickEmployeeList();
+
+            var table = CurrentPage.As<EmployeePage>().GetEmployeeList();
+
+            HtmlTableHelpers.ReadTable(table);
+            HtmlTableHelpers.PerformActionOnCell("6", "Name", "Ramesh", "Edit");
+        }
     }
 }
