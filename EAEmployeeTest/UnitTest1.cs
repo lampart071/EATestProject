@@ -1,6 +1,7 @@
 ﻿using System;
 using EAAutoFramework.Base;
 using EAAutoFramework.Helpers;
+using EAAutoFramework.Config;
 using EAEmployeeTest.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -13,8 +14,6 @@ namespace EAEmployeeTest
     [TestClass]
     public class UnitTest1 : Base
     {
-        string url = "http://localhost/ExecuteAutoEmployee/";
-
         public void OpenBrowser(BrowserType browserType = BrowserType.FireFox)
         {
             switch (browserType)
@@ -37,6 +36,8 @@ namespace EAEmployeeTest
         [TestMethod]
         public void TestMethod1()
         {
+            ConfigReader.SetFrameworkSettings();
+
             string fileName = Environment.CurrentDirectory.ToString() + "\\Data\\Login.xlsx";
             ExcelHelpers.PopulateInCollection(fileName);
 
@@ -45,7 +46,7 @@ namespace EAEmployeeTest
             OpenBrowser(BrowserType.FireFox);
             LogHelpers.Write("Opened the browser !!!");
 
-            DriverContext.Driver.Navigate().GoToUrl(url);
+            DriverContext.Driver.Navigate().GoToUrl(Settings.AUT);
             LogHelpers.Write("Navigated to the page !!!");
             //LoginPage
             CurrentPage = GetInstance<LoginPage>();
@@ -69,7 +70,7 @@ namespace EAEmployeeTest
             OpenBrowser(BrowserType.FireFox);
             LogHelpers.Write("Opened the browser !!!");
 
-            DriverContext.Driver.Navigate().GoToUrl(url);
+            DriverContext.Driver.Navigate().GoToUrl(Settings.AUT);
             LogHelpers.Write("Navigated to the page !!!");
 
             CurrentPage = GetInstance<LoginPage>();
