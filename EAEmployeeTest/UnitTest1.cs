@@ -62,6 +62,8 @@ namespace EAEmployeeTest
         [TestMethod]
         public void TableOperation()
         {
+            ConfigReader.SetFrameworkSettings();
+
             string fileName = Environment.CurrentDirectory.ToString() + "\\Data\\Login.xlsx";
             ExcelHelpers.PopulateInCollection(fileName);
 
@@ -75,6 +77,7 @@ namespace EAEmployeeTest
 
             CurrentPage = GetInstance<LoginPage>();
             CurrentPage.As<LoginPage>().ClickLoginLink();
+            CurrentPage.As<LoginPage>().CheckIfLoginExists();
             CurrentPage.As<LoginPage>().Login(ExcelHelpers.ReadData(1, "UserName"), ExcelHelpers.ReadData(1, "Password"));
             //EmployeePage
             CurrentPage = CurrentPage.As<LoginPage>().ClickEmployeeList();

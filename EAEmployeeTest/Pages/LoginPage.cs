@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EAAutoFramework.Extentions;
 
 namespace EAEmployeeTest.Pages
 {
@@ -41,5 +42,9 @@ namespace EAEmployeeTest.Pages
             return GetInstance<EmployeePage>();
         }
 
+        internal void CheckIfLoginExists()
+        {
+            txtUserName.AssertElementPresent();
+        }
     }
 }
