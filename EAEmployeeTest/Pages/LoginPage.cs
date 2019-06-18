@@ -37,7 +37,7 @@ namespace EAEmployeeTest.Pages
         }
 
         public EmployeePage ClickEmployeeList()
-        {
+        {            
             lnkEmployeeList.Click();
             return GetInstance<EmployeePage>();
         }
