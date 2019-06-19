@@ -8,7 +8,7 @@
     <TestType>SmokeTest</TestType>
     <!-- Possible Flag Y, N -->
     <IsLog>Y</IsLog>
-    <LogPath>???</LogPath>
+    <!--<LogPath>???</LogPath>-->
     <BuildName>DemoBuild</BuildName>
     <!-- Possible Flag Y, N -->
     <IsReport>N</IsReport>

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace EAAutoFramework.Base
 {
-    public abstract class TestInitializeHook
+    public abstract class TestInitializeHook : Base
     {
         public readonly BrowserType Browser;
 

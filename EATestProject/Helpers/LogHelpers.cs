@@ -16,6 +16,7 @@ namespace EAAutoFramework.Helpers
         // Create a file which can store the log information
         public static void CreateLogFile()
         {
+            //MY: Directory is different than in the course
             string dir = Environment.CurrentDirectory.ToString() + "\\Data\\";
             if (Directory.Exists(dir))
             {
