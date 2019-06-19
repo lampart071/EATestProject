@@ -14,40 +14,17 @@ namespace EAEmployeeTest
     [TestClass]
     public class UnitTest1 : Base
     {
-        public void OpenBrowser(BrowserType browserType = BrowserType.FireFox)
-        {
-            switch (browserType)
-            {
-                case BrowserType.InternetExplorer:
-                    DriverContext.Driver = new InternetExplorerDriver();
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
-                    break;
-                case BrowserType.FireFox:
-                    DriverContext.Driver = new FirefoxDriver();
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
-                    break;
-                case BrowserType.Chrome:
-                    DriverContext.Driver = new ChromeDriver();
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
-                    break;
-            }
-        }
+
 
         [TestMethod]
         public void TestMethod1()
         {
-            ConfigReader.SetFrameworkSettings();
-
             string fileName = Environment.CurrentDirectory.ToString() + "\\Data\\Login.xlsx";
+
             ExcelHelpers.PopulateInCollection(fileName);
 
-            LogHelpers.CreateLogFile();
-
-            OpenBrowser(BrowserType.FireFox);
-            LogHelpers.Write("Opened the browser !!!");
-
-            DriverContext.Driver.Navigate().GoToUrl(Settings.AUT);
             LogHelpers.Write("Navigated to the page !!!");
+
             //LoginPage
             CurrentPage = GetInstance<LoginPage>();
             CurrentPage.As<LoginPage>().ClickLoginLink();
