@@ -10,5 +10,12 @@ namespace EAEmployeeTest.Pages
     class CreateEmployeePage : BasePage
     {
 
+        //public EmployeeListPage ClickEmployeeList()
+        //{
+        //    lnkEmployeeList.Click();
+        //    return GetInstance<EmployeeListPage>();
+        //}
+
     }
 }
+ 

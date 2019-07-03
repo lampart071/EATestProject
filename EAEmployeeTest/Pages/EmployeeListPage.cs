@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EAEmployeeTest.Pages
 {
-    class EmployeePage : BasePage
+    internal class EmployeeListPage : BasePage
     {
         //Objects for login page
         [FindsBy(How = How.Name, Using = "searchTerm")]

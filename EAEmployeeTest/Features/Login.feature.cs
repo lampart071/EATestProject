@@ -80,15 +80,15 @@ namespace EAEmployeeTest.Features
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Login with correct username and password", new string[] {
                         "smoke",
                         "positive"});
-#line 10
+#line 9
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 11
+#line 10
  testRunner.Given("I have navigated to the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 12
+#line 11
  testRunner.And("I see application opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 13
+#line 12
  testRunner.Then("I click login link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -97,11 +97,11 @@ this.FeatureBackground();
             table1.AddRow(new string[] {
                         "admin",
                         "password"});
-#line 14
- testRunner.When("I enter UserName and Password and click login", ((string)(null)), table1, "When ");
-#line 17
+#line 13
+ testRunner.When("I enter UserName and Password", ((string)(null)), table1, "When ");
+#line 16
  testRunner.Then("I click login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 18
+#line 17
  testRunner.Then("I should see the username with hello", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
