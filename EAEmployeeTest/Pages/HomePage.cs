@@ -19,14 +19,26 @@ namespace EAEmployeeTest.Pages
         [FindsBy(How = How.LinkText, Using = "Log off")]
         IWebElement lnkLogoff { get; set; }
 
+        internal void CheckIfLoginExists()
+        {
+            lnkLogin.AssertElementPresent();
+        }
+
         internal LoginPage ClickLogin()
         {
             lnkLogin.Click();
             return GetInstance<LoginPage>();
         }
+        
         internal string GetLoggedInUser()
         {
             return lnkLoggedInUser.GetLinkText();
+        }
+
+        public EmployeeListPage ClickEmployeeList()
+        {
+            lnkEmployeeList.Click();
+            return GetInstance<EmployeeListPage>();
         }
     }
 }

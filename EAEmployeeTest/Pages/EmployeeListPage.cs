@@ -1,11 +1,6 @@
 ﻿using EAAutoFramework.Base;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EAEmployeeTest.Pages
 {
@@ -31,6 +26,5 @@ namespace EAEmployeeTest.Pages
         {
             return tblEmployeeList;
         }
-
     }
 }

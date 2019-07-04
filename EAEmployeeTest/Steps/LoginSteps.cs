@@ -1,23 +1,14 @@
 ﻿using EAAutoFramework.Base;
 using EAEmployeeTest.Pages;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace EAEmployeeTest.Steps
 {
     [Binding]
     public class LoginSteps : BaseStep
     {
-        //[Given(@"I Delete employee '(.*)' before I start running test")]
-        //public void GivenIDeleteEmployeeBeforeIStartRunningTest(string p0)
-        //{
-        //    ScenarioContext.Current.Pending();
-        //}
-
         [Given(@"I have navigated to the application")]
         public void GivenIHaveNavigatedToTheApplication()
         {
@@ -28,31 +19,35 @@ namespace EAEmployeeTest.Steps
         [Given(@"I see application opened")]
         public void GivenISeeApplicationOpened()
         {
-            ScenarioContext.Current.Pending();
+            CurrentPage.As<HomePage>().CheckIfLoginExists();
         }
 
         [Then(@"I click login link")]
         public void ThenIClickLoginLink()
         {
-            ScenarioContext.Current.Pending();
+            CurrentPage = CurrentPage.As<HomePage>().ClickLogin();
         }
 
         [When(@"I enter UserName and Password")]
         public void WhenIEnterUserNameAndPassword(Table table)
         {
-            ScenarioContext.Current.Pending();
+            dynamic data = table.CreateDynamicInstance();
+            CurrentPage.As<LoginPage>().Login(data.UserName, data.Password);
         }
 
         [Then(@"I click login button")]
         public void ThenIClickLoginButton()
         {
-            ScenarioContext.Current.Pending();
+            CurrentPage = CurrentPage.As<LoginPage>().ClickLoginButton();
         }
 
         [Then(@"I should see the username with hello")]
         public void ThenIShouldSeeTheUsernameWithHello()
         {
-            ScenarioContext.Current.Pending();
+            if (CurrentPage.As<HomePage>().GetLoggedInUser().Contains("admin"))
+                Console.WriteLine("Success Login");
+            else
+                Console.WriteLine("Unsuccessful Login");
         }
 
     }

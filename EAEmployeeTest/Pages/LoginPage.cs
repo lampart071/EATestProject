@@ -5,7 +5,7 @@ using EAAutoFramework.Extentions;
 
 namespace EAEmployeeTest.Pages
 {
-    class LoginPage : BasePage
+    internal class LoginPage : BasePage
     {
         [FindsBy(How = How.Id, Using = "UserName")]
         IWebElement txtUserName { get; set; }
