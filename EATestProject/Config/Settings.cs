@@ -24,7 +24,5 @@ namespace EAAutoFramework.Config
         public static string IsLog { get; set; }
 
         public static string LogPath { get; set; }
-
-
     }
 }

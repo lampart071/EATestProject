@@ -7,7 +7,7 @@ namespace EAEmployeeTest.Pages
 {
     internal class HomePage : BasePage
     {
-        [FindsBy(How = How.LinkText, Using = "Log in")]
+        [FindsBy(How = How.LinkText, Using = "Login")]
         IWebElement lnkLogin { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "Employee List")]

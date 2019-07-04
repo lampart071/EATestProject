@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.XPath;
 
 namespace EAAutoFramework.Config
@@ -38,7 +33,7 @@ namespace EAAutoFramework.Config
             Settings.BuildName = buildname.Value.ToString();
             Settings.TestType = testtype.Value.ToString();
             Settings.IsLog = islog.Value.ToString();
-            Settings.IsReporting = isreport.Value.ToString();
+            Settings.IsReporting = isreport.Value.ToString();            
             Settings.LogPath = logPath.Value.ToString();
         }
     }
