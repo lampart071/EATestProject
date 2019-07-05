@@ -98,6 +98,8 @@
     <Compile Include="Pages\EmployeeListPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Steps\CreateEmployeeStep.cs" />
+    <Compile Include="Steps\ExtendedSteps.cs" />
     <Compile Include="Steps\LoginSteps.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
