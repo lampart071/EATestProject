@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EAAutoFramework.Base;
+﻿using EAAutoFramework.Base;
+using EAAutoFramework.Config;
+using EAAutoFramework.Helpers;
 using EAEmployeeTest.Pages;
 using TechTalk.SpecFlow;
 
@@ -17,6 +14,13 @@ namespace EAEmployeeTest.Steps
         {
             NavigateSite();
             CurrentPage = GetInstance<HomePage>();
+        }
+
+        [Given(@"I Delete employee '(.*)' before I start running test")]
+        public void GivenIDeleteEmployeeBeforeIStartRunningTest(string employeeName)
+        {
+            string query = "delete from Employees Where Name = '" + employeeName + "'";
+            Settings.ApplicationCon.ExecuteQuery(query);
         }
 
         [Given(@"I see application opened")]

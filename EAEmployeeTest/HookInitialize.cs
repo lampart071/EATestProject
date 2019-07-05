@@ -1,4 +1,6 @@
 ﻿using EAAutoFramework.Base;
+using EAAutoFramework.Config;
+using EAAutoFramework.Helpers;
 using TechTalk.SpecFlow;
 
 namespace EAEmployeeTest
@@ -9,7 +11,7 @@ namespace EAEmployeeTest
         public HookInitialize() : base(BrowserType.FireFox)
         {
             InitializeSettings();
-            //NavigateSite();
+            Settings.ApplicationCon = Settings.ApplicationCon.DBConnect(Settings.AppConnectionString);
         }
 
         [BeforeFeature]

@@ -1,6 +1,7 @@
 ﻿using EAAutoFramework.Base;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,10 @@ namespace EAAutoFramework.Config
         public static string BuildName { get; set; }
 
         public static BrowserType BrowserType { get; set; }
+
+        public static SqlConnection ApplicationCon { get; set; }
+         
+        public static string AppConnectionString { get; set; }
 
         public static string IsLog { get; set; }
 

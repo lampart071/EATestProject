@@ -14,6 +14,7 @@ namespace EAAutoFramework.Config
             XPathItem islog;
             XPathItem isreport;
             XPathItem logPath;
+            XPathItem appConnection;
 
             string strFilename = Environment.CurrentDirectory.ToString() + "\\Config\\GlobalConfig.xml";
             FileStream stream = new FileStream(strFilename, FileMode.Open);
@@ -27,6 +28,7 @@ namespace EAAutoFramework.Config
             islog = navigator.SelectSingleNode("EAAutoFramework/RunSettings/IsLog");
             isreport = navigator.SelectSingleNode("EAAutoFramework/RunSettings/IsReport");
             logPath = navigator.SelectSingleNode("EAAutoFramework/RunSettings/LogPath");
+            appConnection = navigator.SelectSingleNode("EAAutoFramework/RunSettings/ApplicationDB");
 
             //Set XML Details in the property to be used accross framework
             Settings.AUT = aut.Value.ToString();
@@ -35,6 +37,7 @@ namespace EAAutoFramework.Config
             Settings.IsLog = islog.Value.ToString();
             Settings.IsReporting = isreport.Value.ToString();            
             Settings.LogPath = logPath.Value.ToString();
+            Settings.AppConnectionString = appConnection.Value.ToString();
         }
     }
 }
