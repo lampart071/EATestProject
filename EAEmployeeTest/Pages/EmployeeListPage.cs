@@ -26,5 +26,10 @@ namespace EAEmployeeTest.Pages
         {
             return tblEmployeeList;
         }
+
+        public void ClickCreateButton()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -22,10 +22,13 @@ namespace EAEmployeeTest.Steps
             CurrentPage.As<HomePage>().CheckIfLoginExists();
         }
 
-        [Then(@"I click login link")]
-        public void ThenIClickLoginLink()
+        [Then(@"I click (.*) link")]
+        public void ThenIClickLink(string linkName)
         {
-            CurrentPage = CurrentPage.As<HomePage>().ClickLogin();
+            if (linkName == "login")
+                CurrentPage = CurrentPage.As<HomePage>().ClickLogin();
+            else if (linkName == "employeeList")
+                CurrentPage = CurrentPage.As<HomePage>().ClickEmployeeList();
         }
 
         [When(@"I enter UserName and Password")]
@@ -35,10 +38,15 @@ namespace EAEmployeeTest.Steps
             CurrentPage.As<LoginPage>().Login(data.UserName, data.Password);
         }
 
-        [Then(@"I click login button")]
-        public void ThenIClickLoginButton()
+        [Then(@"I click (.*) button")]
+        public void ThenIClickButton(string buttonName)
         {
-            CurrentPage = CurrentPage.As<LoginPage>().ClickLoginButton();
+            if (buttonName == "login")
+                CurrentPage = CurrentPage.As<LoginPage>().ClickLoginButton();
+            else if (buttonName == "createnew")
+                CurrentPage = CurrentPage.As<EmployeeListPage>().ClickCreateNew();
+            else if (buttonName == "create")
+                CurrentPage.As<EmployeeListPage>().ClickCreateButton();
         }
 
         [Then(@"I should see the username with hello")]
