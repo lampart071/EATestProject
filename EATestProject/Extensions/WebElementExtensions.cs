@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EAAutoFramework.Extentions
+namespace EAAutoFramework.Extensions
 {
     public static class WebElementExtensions
     {
