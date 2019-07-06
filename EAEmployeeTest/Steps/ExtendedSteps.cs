@@ -12,21 +12,22 @@ namespace EAEmployeeTest.Steps
         [Given(@"I have navigated to the application")]
         public void GivenIHaveNavigatedToTheApplication()
         {
-            NavigateSite();
+            NaviateSite();
             CurrentPage = GetInstance<HomePage>();
         }
+
 
         [Given(@"I Delete employee '(.*)' before I start running test")]
         public void GivenIDeleteEmployeeBeforeIStartRunningTest(string employeeName)
         {
-            string query = "delete from Employees Where Name = '" + employeeName + "'";
+            string query = "delete from Employees where Name = '" + employeeName + "'";
             Settings.ApplicationCon.ExecuteQuery(query);
         }
 
         [Given(@"I see application opened")]
         public void GivenISeeApplicationOpened()
         {
-            CurrentPage.As<HomePage>().CheckIfLoginExists();
+            CurrentPage.As<HomePage>().CheckIfLoginExist();
         }
 
         [Then(@"I click (.*) link")]
@@ -37,7 +38,7 @@ namespace EAEmployeeTest.Steps
             else if (linkName == "employeeList")
                 CurrentPage = CurrentPage.As<HomePage>().ClickEmployeeList();
         }
-        
+
         [Then(@"I click (.*) button")]
         public void ThenIClickButton(string buttonName)
         {
@@ -48,5 +49,6 @@ namespace EAEmployeeTest.Steps
             else if (buttonName == "create")
                 CurrentPage.As<CreateEmployeePage>().ClickCreateButton();
         }
+
     }
 }

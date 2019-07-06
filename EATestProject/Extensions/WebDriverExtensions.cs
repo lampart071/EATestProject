@@ -1,23 +1,21 @@
 ﻿using EAAutoFramework.Base;
 using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EAAutoFramework.Extentions
+namespace EAAutoFramework.Extensions
 {
     public static class WebDriverExtensions
     {
+
+
         public static void WaitForPageLoaded(this IWebDriver driver)
         {
             driver.WaitForCondition(dri =>
-                {
-                    string state = dri.ExecuteJs("return document.readyState").ToString();
-                    return state == "complete";
-                }, 10);
+            {
+                string state = dri.ExecuteJs("return document.readyState").ToString();
+                return state == "complete";
+            }, 10);
         }
 
         public static void WaitForCondition<T>(this T obj, Func<T, bool> condition, int timeOut)
@@ -38,7 +36,7 @@ namespace EAAutoFramework.Extentions
             var stopWatch = Stopwatch.StartNew();
             while (stopWatch.ElapsedMilliseconds < timeOut)
             {
-                if (execute(obj))
+                if(execute(obj))
                 {
                     break;
                 }

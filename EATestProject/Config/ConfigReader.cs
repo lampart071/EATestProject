@@ -1,20 +1,24 @@
 ﻿using System;
-using System.IO;
 using System.Xml.XPath;
+using System.IO;
+using EAAutoFramework.Base;
 
 namespace EAAutoFramework.Config
 {
     public class ConfigReader
     {
+
         public static void SetFrameworkSettings()
         {
+
             XPathItem aut;
-            XPathItem buildname;
             XPathItem testtype;
             XPathItem islog;
             XPathItem isreport;
+            XPathItem buildname;
             XPathItem logPath;
             XPathItem appConnection;
+            XPathItem browsertype;
 
             string strFilename = Environment.CurrentDirectory.ToString() + "\\Config\\GlobalConfig.xml";
             FileStream stream = new FileStream(strFilename, FileMode.Open);
@@ -29,15 +33,20 @@ namespace EAAutoFramework.Config
             isreport = navigator.SelectSingleNode("EAAutoFramework/RunSettings/IsReport");
             logPath = navigator.SelectSingleNode("EAAutoFramework/RunSettings/LogPath");
             appConnection = navigator.SelectSingleNode("EAAutoFramework/RunSettings/ApplicationDB");
+            browsertype = navigator.SelectSingleNode("EAAutoFramework/RunSettings/Browser");
 
             //Set XML Details in the property to be used accross framework
             Settings.AUT = aut.Value.ToString();
             Settings.BuildName = buildname.Value.ToString();
             Settings.TestType = testtype.Value.ToString();
             Settings.IsLog = islog.Value.ToString();
-            Settings.IsReporting = isreport.Value.ToString();            
+            Settings.IsReporting = isreport.Value.ToString();
             Settings.LogPath = logPath.Value.ToString();
             Settings.AppConnectionString = appConnection.Value.ToString();
+            Settings.BrowserType = (BrowserType)Enum.Parse(typeof(BrowserType), browsertype.Value.ToString());
+
+
         }
+
     }
 }
