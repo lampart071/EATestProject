@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EAAutoFramework.Helpers
 {
-    public static class DataHelperExtentions
+    public static class DataHelperExtensions
     {
         //Open the connection
         public static SqlConnection DBConnect(this SqlConnection sqlConnection, string connectionString)

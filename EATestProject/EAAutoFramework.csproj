@@ -91,9 +91,9 @@
     <Compile Include="Config\Settings.cs" />
     <Compile Include="Extentions\WebDriverExtensions.cs" />
     <Compile Include="Extentions\WebElementExtentions.cs" />
-    <Compile Include="Helpers\DataHelperExtentions.cs" />
+    <Compile Include="Helpers\DataHelperExtensions.cs" />
     <Compile Include="Helpers\ExcelHelpers.cs" />
-    <Compile Include="Helpers\HtmlTableHelpers.cs" />
+    <Compile Include="Helpers\HtmlTableHelper.cs" />
     <Compile Include="Helpers\LogHelpers.cs" />
     <Compile Include="Helpers\ReportingHelpers.cs" />
     <Compile Include="Helpers\WebServiceHelpers.cs" />

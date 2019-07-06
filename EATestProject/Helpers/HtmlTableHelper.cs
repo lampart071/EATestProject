@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EAAutoFramework.Helpers
 {
-    public class HtmlTableHelpers
+    public class HtmlTableHelper
     {
         private static List<TableDatacollection> _tableDatacollections;
 
