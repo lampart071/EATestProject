@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EAAutoFramework.Extentions
 {
-    public static class WebElementExtentions
+    public static class WebElementExtensions
     {
         public static string GetSelectedDropDown(this IWebElement element)
         {
