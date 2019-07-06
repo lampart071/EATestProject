@@ -1,8 +1,10 @@
 ﻿using EAAutoFramework.Config;
 using EAAutoFramework.Helpers;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
+using System.IO;
+using TechTalk.SpecFlow;
 
 namespace EAAutoFramework.Base
 {
@@ -26,6 +28,7 @@ namespace EAAutoFramework.Base
             //Open Browser
             OpenBrowser(Browser);
             LogHelpers.Write("Initialized framework");
+
         }
 
         private void OpenBrowser(BrowserType browserType = BrowserType.FireFox)
@@ -45,6 +48,7 @@ namespace EAAutoFramework.Base
                     DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
             }
+
         }
 
         public virtual void NavigateSite()
@@ -52,5 +56,8 @@ namespace EAAutoFramework.Base
             DriverContext.Browser.GotToUrl(Settings.AUT);
             LogHelpers.Write("Opened the browser !!!");
         }
+
+
+
     }
 }

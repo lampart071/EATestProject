@@ -21,9 +21,9 @@ namespace EAAutoFramework.Base
         {
             DriverContext.Driver.Url = url;
         }
-        
+
     }
-    
+
     public enum BrowserType
     {
         InternetExplorer,
