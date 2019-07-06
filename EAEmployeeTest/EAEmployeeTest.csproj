@@ -89,10 +89,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Employee.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\Login.feature.cs">
+    <Compile Include="Features\Logins.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Login.feature</DependentUpon>
+      <DependentUpon>Logins.feature</DependentUpon>
     </Compile>
     <Compile Include="Hooks\HookInitialize.cs" />
     <Compile Include="Pages\CreateEmployeePage.cs" />
@@ -114,9 +114,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Employee.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\Login.feature">
+    <None Include="Features\Logins.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Login.feature.cs</LastGenOutput>
+      <LastGenOutput>Logins.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
