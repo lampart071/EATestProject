@@ -1,6 +1,6 @@
-﻿using EAAutoFramework.Base;
+﻿using System;
+using EAAutoFramework.Base;
 using EAEmployeeTest.Pages;
-using System;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -9,6 +9,7 @@ namespace EAEmployeeTest.Steps
     [Binding]
     public class LoginSteps : BaseStep
     {
+
         [When(@"I enter UserName and Password")]
         public void WhenIEnterUserNameAndPassword(Table table)
         {
@@ -24,6 +25,14 @@ namespace EAEmployeeTest.Steps
             else
                 Console.WriteLine("Unsuccessful Login");
         }
+
+        [Then(@"I click logout")]
+        public void ThenIClickLogout()
+        {
+            CurrentPage.As<HomePage>().ClickLogOff();
+        }
+
+
 
     }
 }
