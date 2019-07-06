@@ -16,5 +16,10 @@ namespace EAEmployeeTest.Steps
                 data.Salary.ToString(), data.DurationWorked.ToString(), data.Grade.ToString(), data.Email);
         }
 
+        [Then(@"I create and delete user")]
+        public void ThenICreateAndDeleteUser()
+        {
+            //ScenarioContext.Current.Pending();
+        }   
     }
 }
