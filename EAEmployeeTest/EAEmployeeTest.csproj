@@ -94,7 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.feature</DependentUpon>
     </Compile>
-    <Compile Include="HookInitialize.cs" />
+    <Compile Include="Hooks\HookInitialize.cs" />
     <Compile Include="Pages\CreateEmployeePage.cs" />
     <Compile Include="Pages\EmployeeListPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
@@ -102,7 +102,7 @@
     <Compile Include="Steps\CreateEmployeeStep.cs" />
     <Compile Include="Steps\ExtendedSteps.cs" />
     <Compile Include="Steps\LoginSteps.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="TraditionalTest\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
