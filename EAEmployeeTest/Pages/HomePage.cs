@@ -1,6 +1,5 @@
-﻿using System;
-using EAAutoFramework.Base;
-using EAAutoFramework.Extensions;
+﻿using EAAutoFramework.Base;
+using EAAutoFramework.Extentions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -8,7 +7,6 @@ namespace EAEmployeeTest.Pages
 {
     internal class HomePage : BasePage
     {
-
         [FindsBy(How = How.LinkText, Using = "Login")]
         IWebElement lnkLogin { get; set; }
 
@@ -21,19 +19,17 @@ namespace EAEmployeeTest.Pages
         [FindsBy(How = How.LinkText, Using = "Log off")]
         IWebElement lnkLogoff { get; set; }
 
-
-        internal void CheckIfLoginExist()
+        internal void CheckIfLoginExists()
         {
             lnkLogin.AssertElementPresent();
         }
-
 
         internal LoginPage ClickLogin()
         {
             lnkLogin.Click();
             return GetInstance<LoginPage>();
         }
-
+        
         internal string GetLoggedInUser()
         {
             return lnkLoggedInUser.GetLinkText();

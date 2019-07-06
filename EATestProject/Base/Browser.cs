@@ -1,4 +1,9 @@
 ﻿using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace EAAutoFramework.Base
 {
@@ -12,14 +17,13 @@ namespace EAAutoFramework.Base
         }
 
         public BrowserType Type { get; set; }
-
-        public void GoToUrl(string url)
+        public void GotToUrl(string url)
         {
             DriverContext.Driver.Url = url;
         }
-
+        
     }
-
+    
     public enum BrowserType
     {
         InternetExplorer,

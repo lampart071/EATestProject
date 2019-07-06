@@ -15,14 +15,14 @@ namespace EAAutoFramework.Base
         {
             get
             {
-                return (BasePage)ScenarioContext.Current["currentPage"];
+                return (BasePage) ScenarioContext.Current["currentPage"];
+
             }
             set
             {
                 ScenarioContext.Current["currentPage"] = value;
             }
         }
-
         private IWebDriver _driver { get; set; }
 
         protected TPage GetInstance<TPage>() where TPage : BasePage, new()
@@ -41,5 +41,6 @@ namespace EAAutoFramework.Base
         {
             return (TPage)this;
         }
+
     }
 }

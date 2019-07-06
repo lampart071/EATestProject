@@ -1,13 +1,15 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace EAAutoFramework.Helpers
 {
-    public static class DataHelperExtensions
+    public static class DataHelperExtentions
     {
-
         //Open the connection
         public static SqlConnection DBConnect(this SqlConnection sqlConnection, string connectionString)
         {
@@ -21,13 +23,10 @@ namespace EAAutoFramework.Helpers
             {
                 LogHelpers.Write("ERROR :: " + e.Message);
             }
-
             return null;
         }
 
-
-
-        //Closing the connection 
+        //Closing the connection
         public static void DBClose(this SqlConnection sqlConnection)
         {
             try
@@ -40,15 +39,12 @@ namespace EAAutoFramework.Helpers
             }
         }
 
-
         //Execution
         public static DataTable ExecuteQuery(this SqlConnection sqlConnection, string queryString)
         {
-
             DataSet dataset;
             try
             {
-                //Checking the state of the connection
                 if (sqlConnection == null || ((sqlConnection != null && (sqlConnection.State == ConnectionState.Closed ||
                     sqlConnection.State == ConnectionState.Broken))))
                     sqlConnection.Open();
@@ -62,7 +58,7 @@ namespace EAAutoFramework.Helpers
                 sqlConnection.Close();
                 return dataset.Tables["table"];
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 dataset = null;
                 sqlConnection.Close();
@@ -74,45 +70,6 @@ namespace EAAutoFramework.Helpers
                 sqlConnection.Close();
                 dataset = null;
             }
-
-
-        }
-
-        public static DataTable ExecuteProcWithParamsDT(this SqlConnection Conn, string procname, Hashtable parameters)
-        {
-            DataSet dataSet;
-            try
-            {
-                SqlDataAdapter dataAdaptor = new SqlDataAdapter();
-                dataAdaptor.SelectCommand = new SqlCommand(procname, Conn);
-                dataAdaptor.SelectCommand.CommandType = CommandType.StoredProcedure;
-                if (parameters != null)
-                    foreach (DictionaryEntry de in parameters)
-                    {
-                        SqlParameter sp = new SqlParameter(de.Key.ToString(), de.Value.ToString());
-                        dataAdaptor.SelectCommand.Parameters.Add(sp);
-                    }
-
-                dataSet = new DataSet();
-                dataAdaptor.Fill(dataSet, "table");
-                Conn.Close();
-                return dataSet.Tables["table"];
-            }
-            catch (Exception e)
-            {
-                dataSet = null;
-                Conn.Close();
-                Console.WriteLine("ERROR :: " + e.Message);
-                return null;
-            }
-            finally
-            {
-                Conn.Close();
-                dataSet = null;
-            }
-        }
-
-
-
+        }        
     }
 }

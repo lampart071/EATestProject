@@ -1,27 +1,23 @@
 ﻿using EAAutoFramework.Base;
-using TechTalk.SpecFlow;
-using EAAutoFramework.Helpers;
 using EAAutoFramework.Config;
+using EAAutoFramework.Helpers;
+using TechTalk.SpecFlow;
 
-namespace EAEmployeeTest.Hooks
+namespace EAEmployeeTest
 {
-
     [Binding]
     public class HookInitialize : TestInitializeHook
     {
-
-        [BeforeFeature]
-        public static void TestStart()
+        public HookInitialize() : base(BrowserType.FireFox)
         {
             InitializeSettings();
             Settings.ApplicationCon = Settings.ApplicationCon.DBConnect(Settings.AppConnectionString);
         }
 
-        [AfterScenario]
-        public void TestStop()
+        [BeforeFeature]
+        public static void TestStart()
         {
-            DriverContext.Driver.Quit();
+            HookInitialize init = new HookInitialize();
         }
-
     }
 }

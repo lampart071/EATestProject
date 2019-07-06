@@ -1,13 +1,11 @@
-﻿using System;
-using EAAutoFramework.Base;
-using OpenQA.Selenium.Support.PageObjects;
+﻿using EAAutoFramework.Base;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace EAEmployeeTest.Pages
 {
     internal class CreateEmployeePage : BasePage
     {
-
         [FindsBy(How = How.Id, Using = "Name")]
         IWebElement txtName { get; set; }
 
@@ -41,6 +39,6 @@ namespace EAEmployeeTest.Pages
             txtGrade.SendKeys(grade);
             txtEmail.SendKeys(email);
         }
-
     }
 }
+ 

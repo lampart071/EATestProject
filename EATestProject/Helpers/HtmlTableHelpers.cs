@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EAAutoFramework.Helpers
 {
-    public class HtmlTableHelper
+    public class HtmlTableHelpers
     {
         private static List<TableDatacollection> _tableDatacollections;
 
@@ -34,15 +34,30 @@ namespace EAAutoFramework.Helpers
                 if (colDatas.Count != 0)
                     foreach (var colValue in colDatas)
                     {
-                        _tableDatacollections.Add(new TableDatacollection
+                        if (colIndex < columns.Count)
                         {
-                            RowNumber = rowIndex,
-                            ColumnName = columns[colIndex].Text != "" ?
-                                         columns[colIndex].Text : colIndex.ToString(),
-                            ColumnValue = colValue.Text,
-                            ColumnSpecialValues = GetControl(colValue)
-                        });
 
+                            _tableDatacollections.Add(new TableDatacollection
+                            {
+                                RowNumber = rowIndex,
+                                ColumnName = columns[colIndex].Text != "" ?
+                                             columns[colIndex].Text : colIndex.ToString(),
+                                ColumnValue = colValue.Text,
+                                ColumnSpecialValues = GetControl(colValue)
+                            });
+                            
+                        }
+                        else
+                        {
+                            _tableDatacollections.Add(new TableDatacollection
+                            {
+                                RowNumber = rowIndex,
+                                ColumnName = columns.Last().Text != "" ?
+                                             columns.Last().Text : colIndex.ToString(),
+                                ColumnValue = colValue.Text,
+                                ColumnSpecialValues = GetControl(colValue)
+                            });
+                        }
                         //Move to next column
                         colIndex++;
                     }
@@ -59,7 +74,7 @@ namespace EAAutoFramework.Helpers
                 columnSpecialValue = new ColumnSpecialValue
                 {
                     ElementCollection = columnValue.FindElements(By.TagName("a")),
-                    ControlType = "hyperLink"
+                    ControlType = "hyperlink"
                 };
             }
             if (columnValue.FindElements(By.TagName("input")).Count > 0)
@@ -88,7 +103,7 @@ namespace EAAutoFramework.Helpers
                 {
                     //Since based on the control type, the retriving of text changes
                     //created this kind of control
-                    if (cell.ControlType == "hyperLink")
+                    if (cell.ControlType == "hyperlink")
                     {
                         var returnedControl = (from c in cell.ElementCollection
                                                where c.Text == controlToOperate
@@ -120,12 +135,15 @@ namespace EAAutoFramework.Helpers
             //dynamic row
             foreach (var table in _tableDatacollections)
             {
-                if (table.ColumnName == columnName && table.ColumnValue == columnValue)
-                    yield return table.RowNumber;
+                if (table.ColumnName == columnName)
+                {
+                    if (table.ColumnValue == columnValue)
+                    {
+                        yield return table.RowNumber;
+                    }
+                }
             }
         }
-
-
     }
 
 

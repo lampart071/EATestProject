@@ -1,5 +1,6 @@
 ﻿using EAAutoFramework.Base;
 using EAEmployeeTest.Pages;
+using System;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -8,7 +9,6 @@ namespace EAEmployeeTest.Steps
     [Binding]
     public class LoginSteps : BaseStep
     {
-
         [When(@"I enter UserName and Password")]
         public void WhenIEnterUserNameAndPassword(Table table)
         {
@@ -20,12 +20,10 @@ namespace EAEmployeeTest.Steps
         public void ThenIShouldSeeTheUsernameWithHello()
         {
             if (CurrentPage.As<HomePage>().GetLoggedInUser().Contains("admin"))
-                System.Console.WriteLine("Sucess login");
+                Console.WriteLine("Success Login");
             else
-                System.Console.WriteLine("Unsucessful login");
+                Console.WriteLine("Unsuccessful Login");
         }
-
-
 
     }
 }

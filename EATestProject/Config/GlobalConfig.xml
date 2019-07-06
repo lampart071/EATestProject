@@ -13,7 +13,7 @@
     <!-- Possible Flag Y, N -->
     <IsReport>N</IsReport>
     <UserName>EAutoTeam</UserName>
-    <!-- Possible flag Windows, Web, WPF  -->
+    <!-- Possible flag Selenium, Specflow  -->
     <Technology>Selenium</Technology>
     <!--Change ApplicationDB according to environment of your workstation and IIS settings-->
     <ApplicationDB>Data Source=WAW-ST002362\SQLEXPRESS;initial catalog=EmployeeDB;Integrated Security=True</ApplicationDB>

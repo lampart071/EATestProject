@@ -23,24 +23,11 @@ namespace EAAutoFramework.Config
         public static BrowserType BrowserType { get; set; }
 
         public static SqlConnection ApplicationCon { get; set; }
-
+         
         public static string AppConnectionString { get; set; }
 
         public static string IsLog { get; set; }
 
         public static string LogPath { get; set; }
-
-        private static bool _fileCreated = false;
-        public static bool FileCreated
-        {
-            get
-            {
-                return _fileCreated;
-            }
-            set
-            {
-                _fileCreated = value;
-            }
-        }
     }
 }

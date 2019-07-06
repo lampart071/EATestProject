@@ -1,15 +1,21 @@
 ﻿using EAAutoFramework.Config;
 using EAAutoFramework.Helpers;
-using OpenQA.Selenium.IE;
-using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
-using System.IO;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
 
 namespace EAAutoFramework.Base
 {
     public abstract class TestInitializeHook : Base
     {
-        public static void InitializeSettings()
+        public readonly BrowserType Browser;
+
+        public TestInitializeHook(BrowserType browser)
+        {
+            Browser = browser;
+        }
+
+        public void InitializeSettings()
         {
             //Set all the settings for framework
             ConfigReader.SetFrameworkSettings();
@@ -18,13 +24,11 @@ namespace EAAutoFramework.Base
             LogHelpers.CreateLogFile();
 
             //Open Browser
-            OpenBrowser(Settings.BrowserType);
-
+            OpenBrowser(Browser);
             LogHelpers.Write("Initialized framework");
-
         }
 
-        private static void OpenBrowser(BrowserType browserType = BrowserType.FireFox)
+        private void OpenBrowser(BrowserType browserType = BrowserType.FireFox)
         {
             switch (browserType)
             {
@@ -33,9 +37,6 @@ namespace EAAutoFramework.Base
                     DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
                 case BrowserType.FireFox:
-                    //var binary = new FirefoxBinary(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe");
-                    //var profile = new FirefoxProfile();
-                    //DriverContext.Driver = new FirefoxDriver(binary, profile);
                     DriverContext.Driver = new FirefoxDriver();
                     DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
@@ -44,16 +45,12 @@ namespace EAAutoFramework.Base
                     DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
             }
-
         }
 
-        public virtual void NaviateSite()
+        public virtual void NavigateSite()
         {
-            DriverContext.Browser.GoToUrl(Settings.AUT);
+            DriverContext.Browser.GotToUrl(Settings.AUT);
             LogHelpers.Write("Opened the browser !!!");
         }
-
-
-
     }
 }
