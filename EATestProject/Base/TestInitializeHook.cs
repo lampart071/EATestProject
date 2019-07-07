@@ -21,12 +21,12 @@ namespace EAAutoFramework.Base
             LogHelpers.CreateLogFile();
 
             //Open Browser
-            OpenBrowser(BrowserType.FireFox);
+            OpenBrowser(Settings.BrowserType);
             LogHelpers.Write("Initialized framework");
 
         }
 
-        private static void OpenBrowser(BrowserType browserType = BrowserType.FireFox)
+        private static void OpenBrowser(BrowserType browserType = BrowserType.Firefox)
         {
             switch (browserType)
             {
@@ -34,7 +34,7 @@ namespace EAAutoFramework.Base
                     DriverContext.Driver = new InternetExplorerDriver();
                     DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
-                case BrowserType.FireFox:
+                case BrowserType.Firefox:
                     DriverContext.Driver = new FirefoxDriver();
                     DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;

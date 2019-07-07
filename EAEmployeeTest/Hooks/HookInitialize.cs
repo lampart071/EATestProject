@@ -15,15 +15,8 @@ namespace EAEmployeeTest
         [BeforeTestRun]
         public static void TestInitialize()
         {
-            Console.WriteLine("BeforeTestRun");
             InitializeSettings();
             Settings.ApplicationCon = Settings.ApplicationCon.DBConnect(Settings.AppConnectionString);
-        }
-
-        [BeforeFeature]
-        public static void TestStart()
-        {
-            HookInitialize init = new HookInitialize();
         }
 
         [AfterScenario]
