@@ -16,12 +16,6 @@ namespace EAEmployeeTest
         public static void TestInitialize()
         {
             Console.WriteLine("BeforeTestRun");
-            //InitializeSettings();
-            //Settings.ApplicationCon = Settings.ApplicationCon.DBConnect(Settings.AppConnectionString);
-        }
-
-        public HookInitialize() : base(BrowserType.FireFox)
-        {
             InitializeSettings();
             Settings.ApplicationCon = Settings.ApplicationCon.DBConnect(Settings.AppConnectionString);
         }
