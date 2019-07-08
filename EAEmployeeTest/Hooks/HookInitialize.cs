@@ -11,7 +11,6 @@ namespace EAEmployeeTest
 
         [BeforeTestRun]
         public static void TestInitialize()
-
         {
             InitializeSettings();
             Settings.ApplicationCon = Settings.ApplicationCon.DBConnect(Settings.AppConnectionString);

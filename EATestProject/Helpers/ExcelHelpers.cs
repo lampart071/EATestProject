@@ -30,17 +30,6 @@ namespace EAAutoFramework.Helpers
             }
         }
 
-        //private static DataTable ExcelToDataTable(string fileName)
-        //{
-        //    FileStream stream = File.Open(fileName, FileMode.Open, FileAccess.Read);
-        //    IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
-        //    excelReader.IsFirstRowAsColumnNames = true;
-        //    DataSet result = excelReader.AsDataSet();
-        //    DataTableCollection table = result.Tables;
-        //    DataTable resultTable = table["Sheet1"];
-        //    return resultTable;
-        //}
-
         private static DataTable ExcelToDataTable(string fileName)
         {
             using (var stream = File.Open(fileName, FileMode.Open, FileAccess.Read))
@@ -81,10 +70,13 @@ namespace EAAutoFramework.Helpers
 
     }
 
+
     public class Datacollection
     {
         public int rowNumber { get; set; }
         public string colName { get; set; }
         public string colValue { get; set; }
     }
+
+
 }
