@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.Design;
-using EAAutoFramework.Base;
+﻿using EAAutoFramework.Base;
 using EAAutoFramework.Config;
 using EAAutoFramework.Helpers;
 using TechTalk.SpecFlow;

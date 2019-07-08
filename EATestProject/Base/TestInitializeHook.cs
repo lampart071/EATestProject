@@ -3,8 +3,6 @@ using EAAutoFramework.Helpers;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
-using System.IO;
-using TechTalk.SpecFlow;
 
 namespace EAAutoFramework.Base
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using EAAutoFramework.Base;
+﻿using EAAutoFramework.Base;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium;
 

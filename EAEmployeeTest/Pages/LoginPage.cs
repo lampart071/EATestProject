@@ -2,7 +2,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using EAAutoFramework.Extensions;
-using System;
 
 namespace EAEmployeeTest.Pages
 {
