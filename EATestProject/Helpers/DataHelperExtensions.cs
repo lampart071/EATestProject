@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EAAutoFramework.Helpers
 {
-    public static class DataHelperExtentions
+    public static class DataHelperExtensions
     {
         //Open the connection
         public static SqlConnection DBConnect(this SqlConnection sqlConnection, string connectionString)

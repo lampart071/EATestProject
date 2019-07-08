@@ -16,6 +16,9 @@ namespace EAEmployeeTest.Pages
         [FindsBy(How = How.ClassName, Using = "table")]
         IWebElement tblEmployeeList { get; set; }
 
+        [FindsBy(How = How.LinkText, Using = "Log off")]
+        IWebElement lnkLogoff { get; set; }
+
         public CreateEmployeePage ClickCreateNew()
         {
             lnkCreateNew.Click();
@@ -25,6 +28,11 @@ namespace EAEmployeeTest.Pages
         public IWebElement GetEmployeeList()
         {
             return tblEmployeeList;
+        }
+
+        internal void ClickLogoff()
+        {
+            lnkLogoff.Click();
         }
 
         public void ClickCreateButton()

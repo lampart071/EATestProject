@@ -9,6 +9,8 @@ namespace EAEmployeeTest.Steps
     [Binding]
     internal class ExtendedSteps : BaseStep
     {
+
+
         [Given(@"I have navigated to the application")]
         public void GivenIHaveNavigatedToTheApplication()
         {
@@ -37,7 +39,7 @@ namespace EAEmployeeTest.Steps
             else if (linkName == "employeeList")
                 CurrentPage = CurrentPage.As<HomePage>().ClickEmployeeList();
         }
-        
+
         [Then(@"I click (.*) button")]
         public void ThenIClickButton(string buttonName)
         {
@@ -48,5 +50,13 @@ namespace EAEmployeeTest.Steps
             else if (buttonName == "create")
                 CurrentPage.As<CreateEmployeePage>().ClickCreateButton();
         }
+
+        [Then(@"I click log off")]
+        public void ThenIClickLogOff()
+        {
+            CurrentPage.As<EmployeeListPage>().ClickLogoff();
+        }
+
+
     }
 }

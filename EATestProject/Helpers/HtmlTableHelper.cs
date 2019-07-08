@@ -1,14 +1,11 @@
 ﻿using OpenQA.Selenium;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EAAutoFramework.Helpers
 {
-    public class HtmlTableHelpers
+    public class HtmlTableHelper
     {
         private static List<TableDatacollection> _tableDatacollections;
 

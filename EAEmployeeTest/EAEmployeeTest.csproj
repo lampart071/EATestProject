@@ -89,10 +89,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Employee.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\Login.feature.cs">
+    <Compile Include="Features\Logins.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Login.feature</DependentUpon>
+      <DependentUpon>Logins.feature</DependentUpon>
     </Compile>
     <Compile Include="Hooks\HookInitialize.cs" />
     <Compile Include="Pages\CreateEmployeePage.cs" />
@@ -102,7 +102,6 @@
     <Compile Include="Steps\CreateEmployeeStep.cs" />
     <Compile Include="Steps\ExtendedSteps.cs" />
     <Compile Include="Steps\LoginSteps.cs" />
-    <Compile Include="TraditionalTest\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -114,9 +113,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Employee.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\Login.feature">
+    <None Include="Features\Logins.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Login.feature.cs</LastGenOutput>
+      <LastGenOutput>Logins.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -127,9 +126,6 @@
       <Project>{b558982a-6a58-4016-adb9-f2ef5701ed10}</Project>
       <Name>EAAutoFramework</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

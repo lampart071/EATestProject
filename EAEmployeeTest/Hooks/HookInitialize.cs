@@ -8,16 +8,21 @@ namespace EAEmployeeTest
     [Binding]
     public class HookInitialize : TestInitializeHook
     {
-        public HookInitialize() : base(BrowserType.FireFox)
+
+        [BeforeTestRun]
+        public static void TestInitialize()
+
         {
             InitializeSettings();
             Settings.ApplicationCon = Settings.ApplicationCon.DBConnect(Settings.AppConnectionString);
         }
 
-        [BeforeFeature]
-        public static void TestStart()
+        [AfterScenario]
+        public static void TestStop()
         {
-            HookInitialize init = new HookInitialize();
+            DriverContext.Driver.Quit();
         }
+
+
     }
 }

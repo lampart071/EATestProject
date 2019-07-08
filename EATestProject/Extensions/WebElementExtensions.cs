@@ -5,12 +5,10 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EAAutoFramework.Extentions
+namespace EAAutoFramework.Extensions
 {
-    public static class WebElementExtentions
+    public static class WebElementExtensions
     {
         public static string GetSelectedDropDown(this IWebElement element)
         {

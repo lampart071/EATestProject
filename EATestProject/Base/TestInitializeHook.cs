@@ -1,21 +1,16 @@
 ﻿using EAAutoFramework.Config;
 using EAAutoFramework.Helpers;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
 
 namespace EAAutoFramework.Base
 {
     public abstract class TestInitializeHook : Base
     {
-        public readonly BrowserType Browser;
 
-        public TestInitializeHook(BrowserType browser)
-        {
-            Browser = browser;
-        }
 
-        public void InitializeSettings()
+        public static void InitializeSettings()
         {
             //Set all the settings for framework
             ConfigReader.SetFrameworkSettings();
@@ -24,11 +19,12 @@ namespace EAAutoFramework.Base
             LogHelpers.CreateLogFile();
 
             //Open Browser
-            OpenBrowser(Browser);
+            OpenBrowser(Settings.BrowserType);
             LogHelpers.Write("Initialized framework");
+
         }
 
-        private void OpenBrowser(BrowserType browserType = BrowserType.FireFox)
+        private static void OpenBrowser(BrowserType browserType = BrowserType.Firefox)
         {
             switch (browserType)
             {
@@ -36,7 +32,7 @@ namespace EAAutoFramework.Base
                     DriverContext.Driver = new InternetExplorerDriver();
                     DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
-                case BrowserType.FireFox:
+                case BrowserType.Firefox:
                     DriverContext.Driver = new FirefoxDriver();
                     DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
@@ -45,6 +41,7 @@ namespace EAAutoFramework.Base
                     DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
             }
+
         }
 
         public virtual void NavigateSite()
@@ -52,5 +49,7 @@ namespace EAAutoFramework.Base
             DriverContext.Browser.GotToUrl(Settings.AUT);
             LogHelpers.Write("Opened the browser !!!");
         }
+
+
     }
 }

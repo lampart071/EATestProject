@@ -1,10 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace EAAutoFramework.Base
@@ -15,14 +10,14 @@ namespace EAAutoFramework.Base
         {
             get
             {
-                return (BasePage) ScenarioContext.Current["currentPage"];
-
+                return (BasePage)ScenarioContext.Current["currentPage"];
             }
             set
             {
                 ScenarioContext.Current["currentPage"] = value;
             }
         }
+
         private IWebDriver _driver { get; set; }
 
         protected TPage GetInstance<TPage>() where TPage : BasePage, new()
@@ -41,6 +36,5 @@ namespace EAAutoFramework.Base
         {
             return (TPage)this;
         }
-
     }
 }
