@@ -102,7 +102,6 @@
     <Compile Include="Steps\CreateEmployeeStep.cs" />
     <Compile Include="Steps\ExtendedSteps.cs" />
     <Compile Include="Steps\LoginSteps.cs" />
-    <Compile Include="TraditionalTest\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
