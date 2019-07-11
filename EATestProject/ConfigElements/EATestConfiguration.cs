@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace EAAutoFramework.ConfigElements
 {
@@ -16,5 +11,5 @@ namespace EAAutoFramework.ConfigElements
         [ConfigurationProperty("testSettings")]
         public EAFrameworkElementCollection TestSettings { get { return (EAFrameworkElementCollection)base["testSettings"]; } }
 
-    }
+    } 
 }
