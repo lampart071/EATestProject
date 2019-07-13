@@ -12,10 +12,10 @@ namespace EAAutoFramework.ConfigElements
         //public EAFrameworkElementCollection TestSettings { get { return (EAFrameworkElementCollection)base["testSettings"]; } }
 
         [ConfigurationProperty("Servers")]
-        public EATestConfiguration ServerElement
+        public EAFrameworkElementCollection ServerElement
         {
-            get { return ((EATestConfiguration)(base["Servers"])); }
-            set { base["Servers"] = value; }
+            get { return ((EAFrameworkElementCollection)(base["Servers"])); }
+            //set { base["Servers"] = value; }
         }
 
     } 

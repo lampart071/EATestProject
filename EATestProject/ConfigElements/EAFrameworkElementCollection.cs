@@ -21,8 +21,8 @@ namespace EAAutoFramework.ConfigElements
         protected override object GetElementKey(ConfigurationElement element) { return ((EAFrameworkElement)(element)).name; } //OK
 
         
-        //public new EAFrameworkElement this[string type]{get{return (EAFrameworkElement)base.BaseGet(type);}}//? To decide
-        public EAFrameworkElement this[int idx] { get { return (EAFrameworkElement)BaseGet(idx); } }//? To decide
+        public new EAFrameworkElement this[string type]{get{return (EAFrameworkElement)base.BaseGet(type);}}//? To decide
+        //public EAFrameworkElement this[int idx] { get { return (EAFrameworkElement)BaseGet(idx); } }//? To decide
 
 
 

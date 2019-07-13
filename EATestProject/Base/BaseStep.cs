@@ -7,7 +7,7 @@ namespace EAAutoFramework.Base
     {
         public virtual void NavigateSite()
         {
-            DriverContext.Browser.GotToUrl(Settings.AUT);
+            //DriverContext.Browser.GotToUrl(Settings.AUT);
             LogHelpers.Write("Opened the browser !!!");
         }
     }

@@ -1,5 +1,7 @@
 ﻿using EAAutoFramework.Base;
 using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Xml.XPath;
 using EAAutoFramework.ConfigElements;
@@ -17,7 +19,26 @@ namespace EAAutoFramework.Config
             ////Settings.IsReporting = EATestConfiguration.EASettings.TestSettings["staging"].IsReadOnly;
             //Settings.LogPath = EATestConfiguration.EASettings.TestSettings["staging"].LogPath;
             ////Settings.AppConnectionString = appConnection.Value.ToString();
-            //Settings.BrowserType = (BrowserType)Enum.Parse(typeof(BrowserType), EATestConfiguration.EASettings.TestSettings["staging"].Browser);
+            //Settings.BrowserType = (BrowserType)Enum.Parse(typeof(BrowserType), EATestConfiguration.EASettings.TestSettings["staging"].Browser);          
+        }
+
+
+        public EATestConfiguration ServerAppearanceConfiguration 
+            => (EATestConfiguration)ConfigurationManager.GetSection("testConfig");
+
+        public EAFrameworkElementCollection ServerApperances 
+            => this.ServerAppearanceConfiguration.ServerElement;
+
+        public IEnumerable<EAFrameworkElement> ServerElements
+        {
+            get
+            {
+                foreach (EAFrameworkElement selement in this.ServerApperances)
+                {
+                    if (selement != null)
+                        yield return selement;
+                }
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ namespace EAAutoFramework.ConfigElements
         //[ConfigurationProperty("logPath", IsRequired = true)]
         //public string LogPath { get { return (string)base["logPath"]; } }
 
-        [ConfigurationProperty("name", DefaultValue = "NO_NAME", IsKey = true, IsRequired = true)]
+        [ConfigurationProperty("name", DefaultValue = "NO_NAME", IsKey = true, IsRequired = false)]
         public string name
         {
             get { return (string)base["name"]; }

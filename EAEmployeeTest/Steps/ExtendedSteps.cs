@@ -22,7 +22,7 @@ namespace EAEmployeeTest.Steps
         public void GivenIDeleteEmployeeBeforeIStartRunningTest(string employeeName)
         {
             string query = "delete from Employees Where Name = '" + employeeName + "'";
-            Settings.ApplicationCon.ExecuteQuery(query);
+            //Settings.ApplicationCon.ExecuteQuery(query);
         }
 
         [Given(@"I see application opened")]

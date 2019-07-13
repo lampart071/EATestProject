@@ -15,11 +15,16 @@ namespace EAAutoFramework.Base
             //Set all the settings for framework
             ConfigReader.SetFrameworkSettings();
 
+            ConfigReader settings = new ConfigReader();
+            var sconf = settings.ServerAppearanceConfiguration;
+            var sapprs = settings.ServerApperances;
+            var selems = settings.ServerElements;
+
             //Set Log
             LogHelpers.CreateLogFile();
 
             //Open Browser
-            OpenBrowser(Settings.BrowserType);
+            //OpenBrowser(Settings.BrowserType);
             LogHelpers.Write("Initialized framework");
 
         }
@@ -46,7 +51,7 @@ namespace EAAutoFramework.Base
 
         public virtual void NavigateSite()
         {
-            DriverContext.Browser.GotToUrl(Settings.AUT);
+            //DriverContext.Browser.GotToUrl(Settings.AUT);
             LogHelpers.Write("Opened the browser !!!");
         }
 
