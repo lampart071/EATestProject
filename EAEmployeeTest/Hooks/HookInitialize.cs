@@ -31,14 +31,15 @@ namespace EAEmployeeTest
             // Attach report to reporter
             extent = new ExtentReports();
 
-            //klov = new KlovReporter();
-            //klov.InitMongoDbConnection("localhost", 27017);
-            //klov.KlovUrl = "http://localhost:5689";
-            //klov.ProjectName = "EA Test";            
-            //klov.ReportName = "Test Run" + DateTime.Now.ToString();
-            //extent.AttachReporter(htmlReporter, klov);
-
-            extent.AttachReporter(htmlReporter);
+            // Need to install MongoDB 3.2 first, set and run. 
+            // In case db issue try set ' mongod --storageEngine=mmapv1 --dbpath "C:\DEVLOGS" '
+            klov = new KlovReporter();
+            klov.InitMongoDbConnection("localhost", 27017);
+            // Need to run klov ' java -jar klov-... ', settings for klov in application.properties
+            klov.KlovUrl = "http://localhost:5689";
+            klov.ProjectName = "EA Test";
+            klov.ReportName = "Test Run" + DateTime.Now.ToString();
+            extent.AttachReporter(htmlReporter, klov);
         }
 
         [BeforeFeature]
