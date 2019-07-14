@@ -25,10 +25,7 @@ namespace EAEmployeeTest.Pages
             => DriverContext.Driver.FindElement(By.XPath("//input[@value='Create']"));
 
 
-        internal void ClickCreateButton()
-        {
-            btnCreateEmployee.Submit();
-        }
+        internal void ClickCreateButton() => btnCreateEmployee.Submit();
 
         internal void CreateEmployee(string name, string salary, string durationworked, string grade, string email)
         {

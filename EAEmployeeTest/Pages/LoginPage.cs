@@ -1,6 +1,5 @@
 ﻿using EAAutoFramework.Base;
 using OpenQA.Selenium;
-using EAAutoFramework.Extensions;
 
 namespace EAEmployeeTest.Pages
 {
@@ -26,11 +25,6 @@ namespace EAEmployeeTest.Pages
         {
             btnLogin.Click();
             return GetInstance<HomePage>();
-        }
-
-        internal void CheckIfLoginExists()
-        {
-            txtUserName.AssertElementPresent();
         }
     }
 }

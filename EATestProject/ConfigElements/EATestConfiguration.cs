@@ -4,12 +4,12 @@ namespace EAAutoFramework.ConfigElements
 {
     public class EATestConfiguration : ConfigurationSection
     {
-        private static EATestConfiguration _testConfig = (EATestConfiguration)ConfigurationManager.GetSection("EATestConfiguration");
+        private static EATestConfiguration _testConfig 
+            = (EATestConfiguration)ConfigurationManager.GetSection("EATestConfiguration");
 
-        public static EATestConfiguration EASettings { get { return _testConfig; } }
+        public static EATestConfiguration EASettings => _testConfig;
 
         [ConfigurationProperty("testSettings")]
-        public EAFrameworkElementCollection TestSettings { get { return (EAFrameworkElementCollection)base["testSettings"]; } }
-
+        public EAFrameworkElementCollection TestSettings => (EAFrameworkElementCollection)base["testSettings"];
     } 
 }

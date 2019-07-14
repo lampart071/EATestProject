@@ -15,12 +15,6 @@ namespace EAAutoFramework.ConfigElements
             return (element as EAFrameworkElement).Name;
         }
 
-        public new EAFrameworkElement this[string type]
-        {
-            get
-            {
-                return (EAFrameworkElement)base.BaseGet(type);
-            }
-        }
+        public new EAFrameworkElement this[string type] => (EAFrameworkElement)base.BaseGet(type);
     }
 }

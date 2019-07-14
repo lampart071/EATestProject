@@ -1,4 +1,5 @@
-﻿using TechTalk.SpecFlow;
+﻿using System;
+using TechTalk.SpecFlow;
 
 namespace EAAutoFramework.Base
 {
@@ -11,7 +12,7 @@ namespace EAAutoFramework.Base
         }
 
         public TPage GetInstance<TPage>() where TPage : BasePage, new() 
-            => new TPage();
+            => (TPage) Activator.CreateInstance(typeof(TPage));
 
         public TPage As<TPage>() where TPage : BasePage 
             => (TPage)this;

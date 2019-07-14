@@ -9,14 +9,8 @@ namespace EAAutoFramework.Base
 
         public static IWebDriver Driver
         {
-            get
-            {
-                return _driver;
-            }
-            set
-            {
-                _driver = value;
-            }
+            get => _driver;
+            set => _driver = value;
         }
 
 
