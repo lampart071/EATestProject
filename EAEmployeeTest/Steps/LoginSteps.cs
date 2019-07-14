@@ -20,10 +20,9 @@ namespace EAEmployeeTest.Steps
         [Then(@"I should see the username with hello")]
         public void ThenIShouldSeeTheUsernameWithHello()
         {
-            if (CurrentPage.As<HomePage>().GetLoggedInUser().Contains("admin"))
-                Console.WriteLine("Success Login");
-            else
-                Console.WriteLine("Unsuccessful Login");
+            Console.WriteLine(CurrentPage.As<HomePage>().GetLoggedInUser().Contains("admin")
+                ? "Success Login"
+                : "Unsuccessful Login");
         }
 
         [Then(@"I click logout")]

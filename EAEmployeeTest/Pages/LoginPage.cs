@@ -1,20 +1,19 @@
 ﻿using EAAutoFramework.Base;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 using EAAutoFramework.Extensions;
 
 namespace EAEmployeeTest.Pages
 {
-    class LoginPage : BasePage
+    internal class LoginPage : BasePage
     {
-        [FindsBy(How = How.Id, Using = "UserName")]
-        IWebElement txtUserName { get; set; }
+        private IWebElement txtUserName
+            => DriverContext.Driver.FindElement(By.CssSelector("#UserName"));
 
-        [FindsBy(How = How.Id, Using = "Password")]
-        IWebElement txtPassword { get; set; }
+        private IWebElement txtPassword
+            => DriverContext.Driver.FindElement(By.CssSelector("#Password"));
 
-        [FindsBy(How = How.CssSelector, Using = "input.btn")]
-        IWebElement btnLogin { get; set; }
+        private IWebElement btnLogin
+            => DriverContext.Driver.FindElement(By.CssSelector("input.btn"));
 
 
         public void Login(string userName, string password)
@@ -23,7 +22,7 @@ namespace EAEmployeeTest.Pages
             txtPassword.SendKeys(password);
         }
 
-        public HomePage ClickLoginButton()
+        internal HomePage ClickLoginButton()
         {
             btnLogin.Click();
             return GetInstance<HomePage>();

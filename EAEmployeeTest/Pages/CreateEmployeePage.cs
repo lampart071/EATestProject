@@ -6,31 +6,29 @@ namespace EAEmployeeTest.Pages
 {
     internal class CreateEmployeePage : BasePage
     {
+        private IWebElement txtName 
+            => DriverContext.Driver.FindElement(By.CssSelector("#Name"));
 
-        [FindsBy(How = How.Id, Using = "Name")]
-        IWebElement txtName { get; set; }
+        private IWebElement txtSalary 
+            => DriverContext.Driver.FindElement(By.CssSelector("#Salary"));
 
-        [FindsBy(How = How.Id, Using = "Salary")]
-        IWebElement txtSalary { get; set; }
+        private IWebElement txtDurationWorked 
+            => DriverContext.Driver.FindElement(By.CssSelector("#DurationWorked"));
 
-        [FindsBy(How = How.Id, Using = "DurationWorked")]
-        IWebElement txtDurationWorked { get; set; }
+        private IWebElement txtGrade 
+            => DriverContext.Driver.FindElement(By.CssSelector("#Grade"));
 
-        [FindsBy(How = How.Id, Using = "Grade")]
-        IWebElement txtGrade { get; set; }
+        private IWebElement txtEmail
+            => DriverContext.Driver.FindElement(By.CssSelector("#Email"));
 
-        [FindsBy(How = How.Id, Using = "Email")]
-        IWebElement txtEmail { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//input[@value='Create']")]
-        IWebElement btnCreateEmployee { get; set; }
+        private IWebElement btnCreateEmployee 
+            => DriverContext.Driver.FindElement(By.XPath("//input[@value='Create']"));
 
 
         internal void ClickCreateButton()
         {
             btnCreateEmployee.Submit();
         }
-
 
         internal void CreateEmployee(string name, string salary, string durationworked, string grade, string email)
         {

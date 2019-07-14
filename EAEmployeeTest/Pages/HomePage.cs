@@ -1,25 +1,25 @@
 ﻿using EAAutoFramework.Base;
 using EAAutoFramework.Extensions;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace EAEmployeeTest.Pages
 {
     internal class HomePage : BasePage
     {
+        IWebElement lnkLogin 
+            => DriverContext.Driver.FindElement(By.LinkText("Login"));
+        
+        IWebElement lnkEmployeeList
+            => DriverContext.Driver.FindElement(By.LinkText("Employee List"));
+       
+        IWebElement lnkLoggedInUser
+            => DriverContext.Driver.FindElement(By.XPath("//a[@title='Manage']"));
 
-        [FindsBy(How = How.LinkText, Using = "Login")]
-        IWebElement lnkLogin { get; set; }
-
-        [FindsBy(How = How.LinkText, Using = "Employee List")]
-        IWebElement lnkEmployeeList { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//a[@title='Manage']")]
-        IWebElement lnkLoggedInUser { get; set; }
-
-        [FindsBy(How = How.LinkText, Using = "Log off")]
-        IWebElement lnkLogoff { get; set; }
-
+        IWebElement lnkLogoff
+            => DriverContext.Driver.FindElement(By.LinkText("Log off"));
+        
 
         internal void CheckIfLoginExists()
         {
@@ -37,13 +37,13 @@ namespace EAEmployeeTest.Pages
             return lnkLoggedInUser.GetLinkText();
         }
 
-        public EmployeeListPage ClickEmployeeList()
+        internal EmployeeListPage ClickEmployeeList()
         {
             lnkEmployeeList.Click();
             return GetInstance<EmployeeListPage>();
         }
 
-        public LoginPage ClickLogOff()
+        internal LoginPage ClickLogOff()
         {
             lnkLogoff.Click();
             return GetInstance<LoginPage>();

@@ -1,22 +1,21 @@
 ﻿using EAAutoFramework.Base;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 
 namespace EAEmployeeTest.Pages
 {
     internal class EmployeeListPage : BasePage
     {
-        [FindsBy(How = How.Name, Using = "searchTerm")]
-        IWebElement txtSearch { get; set; }
+        private IWebElement txtSearch
+            => DriverContext.Driver.FindElement(By.Name("searchTerm"));
+        
+        private IWebElement lnkCreateNew
+            => DriverContext.Driver.FindElement((By.LinkText("Create New")));
+        
+        private IWebElement tblEmployeeList 
+            => DriverContext.Driver.FindElement((By.CssSelector(".table")));
 
-        [FindsBy(How = How.LinkText, Using = "Create New")]
-        IWebElement lnkCreateNew { get; set; }
-
-        [FindsBy(How = How.ClassName, Using = "table")]
-        IWebElement tblEmployeeList { get; set; }
-
-        [FindsBy(How = How.LinkText, Using = "Log off")]
-        IWebElement lnkLogoff { get; set; }
+        private IWebElement lnkLogoff
+            => DriverContext.Driver.FindElement((By.LinkText("Log off")));
 
         public CreateEmployeePage ClickCreateNew()
         {
