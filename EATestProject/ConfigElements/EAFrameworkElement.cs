@@ -21,5 +21,8 @@ namespace EAAutoFramework.ConfigElements
 
         [ConfigurationProperty("logPath", IsRequired = true)]
         public string LogPath { get { return (string)base["logPath"]; } }
+
+        [ConfigurationProperty("appDb", IsRequired = true)]
+        public string ApplicationDB { get { return (string)base["appDb"]; } }
     }
 }

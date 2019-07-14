@@ -16,7 +16,7 @@ namespace EAAutoFramework.Config
             Settings.IsLog = EATestConfiguration.EASettings.TestSettings["staging"].IsLog;
             //Settings.IsReporting = EATestConfiguration.EASettings.TestSettings["staging"].IsReadOnly;
             Settings.LogPath = EATestConfiguration.EASettings.TestSettings["staging"].LogPath;
-            //Settings.AppConnectionString = appConnection.Value.ToString();
+            Settings.AppConnectionString = EATestConfiguration.EASettings.TestSettings["staging"].ApplicationDB;
             Settings.BrowserType = (BrowserType)Enum.Parse(typeof(BrowserType), EATestConfiguration.EASettings.TestSettings["staging"].Browser);
         }
     }
