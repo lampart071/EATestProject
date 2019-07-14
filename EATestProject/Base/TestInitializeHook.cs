@@ -9,7 +9,6 @@ namespace EAAutoFramework.Base
     public abstract class TestInitializeHook : Base
     {
 
-
         public static void InitializeSettings()
         {
             //Set all the settings for framework
@@ -49,7 +48,6 @@ namespace EAAutoFramework.Base
             DriverContext.Browser.GotToUrl(Settings.AUT);
             LogHelpers.Write("Opened the browser !!!");
         }
-
 
     }
 }

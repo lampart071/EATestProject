@@ -9,8 +9,7 @@ namespace EAEmployeeTest.Steps
     [Binding]
     internal class ExtendedSteps : BaseStep
     {
-
-
+        
         [Given(@"I have navigated to the application")]
         public void GivenIHaveNavigatedToTheApplication()
         {
@@ -56,7 +55,6 @@ namespace EAEmployeeTest.Steps
         {
             CurrentPage.As<EmployeeListPage>().ClickLogoff();
         }
-
-
+        
     }
 }

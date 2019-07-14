@@ -32,7 +32,5 @@ namespace EAEmployeeTest.Steps
             CurrentPage.As<HomePage>().ClickLogOff();
         }
 
-
-
     }
 }

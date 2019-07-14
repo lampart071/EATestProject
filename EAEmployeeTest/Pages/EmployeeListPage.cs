@@ -6,7 +6,6 @@ namespace EAEmployeeTest.Pages
 {
     internal class EmployeeListPage : BasePage
     {
-        //Objects for login page
         [FindsBy(How = How.Name, Using = "searchTerm")]
         IWebElement txtSearch { get; set; }
 

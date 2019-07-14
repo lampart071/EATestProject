@@ -22,6 +22,5 @@ namespace EAEmployeeTest
             DriverContext.Driver.Quit();
         }
 
-
     }
 }
