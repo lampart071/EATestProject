@@ -94,7 +94,7 @@ namespace CrossPlatformEATest
         [AfterScenario]
         public static void TestStop()
         {
-            DriverContext.Driver.Quit();
+            //DriverContext.Driver.Quit();
             //extent.Flush();
         }
 

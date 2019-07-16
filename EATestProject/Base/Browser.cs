@@ -13,11 +13,6 @@ namespace EAAutoFramework.Base
 
         public BrowserType Type { get; set; }
 
-        public void GotToUrl(string url)
-        {
-            driverContext.Driver.Url = url;
-        }
-
     }
 
     public enum BrowserType

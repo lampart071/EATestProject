@@ -5,14 +5,17 @@ namespace EAAutoFramework.Base
     public class DriverContext
     {
 
-        private IWebDriver _driver;
+        public readonly ParallelConfig _parallelConfig;
 
-        public IWebDriver Driver
+        public DriverContext(ParallelConfig parallelConfig)
         {
-            get => _driver;
-            set => _driver = value;
+            _parallelConfig = parallelConfig;
         }
-
+        
+        public void GotToUrl(string url)
+        {
+            _parallelConfig.Driver.Url = url;
+        }
 
         public static Browser Browser { get; set; }
 

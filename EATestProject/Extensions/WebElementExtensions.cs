@@ -22,11 +22,11 @@ namespace EAAutoFramework.Extensions
             return ddl.AllSelectedOptions;
         }
 
-        public static void Hover(this IWebElement element)
-        {
-            Actions actions = new Actions(DriverContext.Driver);
-            actions.MoveToElement(element).Perform();
-        }
+        //public static void Hover(this IWebElement element)
+        //{
+        //    Actions actions = new Actions(DriverContext.Driver);
+        //    actions.MoveToElement(element).Perform();
+        //}
 
         public static string GetLinkText(this IWebElement element)
         {
