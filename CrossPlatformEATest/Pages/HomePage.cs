@@ -6,17 +6,21 @@ namespace CrossPlatformEATest.Pages
 {
     internal class HomePage : BasePage
     {
+        public HomePage(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+        }
+
         IWebElement lnkLogin 
-            => DriverContext.Driver.FindElement(By.LinkText("Login"));
+            => _parallelConfig.Driver.FindElement(By.LinkText("Login"));
         
         IWebElement lnkEmployeeList
-            => DriverContext.Driver.FindElement(By.LinkText("Employee List"));
+            => _parallelConfig.Driver.FindElement(By.LinkText("Employee List"));
        
         IWebElement lnkLoggedInUser
-            => DriverContext.Driver.FindElement(By.XPath("//a[@title='Manage']"));
+            => _parallelConfig.Driver.FindElement(By.XPath("//a[@title='Manage']"));
 
         IWebElement lnkLogoff
-            => DriverContext.Driver.FindElement(By.LinkText("Log off"));
+            => _parallelConfig.Driver.FindElement(By.LinkText("Log off"));
         
 
         internal void CheckIfLoginExists()
@@ -27,7 +31,7 @@ namespace CrossPlatformEATest.Pages
         internal LoginPage ClickLogin()
         {
             lnkLogin.Click();
-            return GetInstance<LoginPage>();
+            return new LoginPage(_parallelConfig);
         }
 
         internal string GetLoggedInUser()
@@ -38,13 +42,13 @@ namespace CrossPlatformEATest.Pages
         internal EmployeeListPage ClickEmployeeList()
         {
             lnkEmployeeList.Click();
-            return GetInstance<EmployeeListPage>();
+            return new EmployeeListPage(_parallelConfig);
         }
 
         internal LoginPage ClickLogOff()
         {
             lnkLogoff.Click();
-            return GetInstance<LoginPage>();
+            return new LoginPage(_parallelConfig);
         }
     }
 }

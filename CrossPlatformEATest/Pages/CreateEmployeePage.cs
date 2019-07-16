@@ -5,23 +5,27 @@ namespace CrossPlatformEATest.Pages
 {
     internal class CreateEmployeePage : BasePage
     {
+        public CreateEmployeePage(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+        }
+
         private IWebElement txtName 
-            => DriverContext.Driver.FindElement(By.CssSelector("#Name"));
+            => _parallelConfig.Driver.FindElement(By.CssSelector("#Name"));
 
         private IWebElement txtSalary 
-            => DriverContext.Driver.FindElement(By.CssSelector("#Salary"));
+            => _parallelConfig.Driver.FindElement(By.CssSelector("#Salary"));
 
         private IWebElement txtDurationWorked 
-            => DriverContext.Driver.FindElement(By.CssSelector("#DurationWorked"));
+            => _parallelConfig.Driver.FindElement(By.CssSelector("#DurationWorked"));
 
         private IWebElement txtGrade 
-            => DriverContext.Driver.FindElement(By.CssSelector("#Grade"));
+            => _parallelConfig.Driver.FindElement(By.CssSelector("#Grade"));
 
         private IWebElement txtEmail
-            => DriverContext.Driver.FindElement(By.CssSelector("#Email"));
+            => _parallelConfig.Driver.FindElement(By.CssSelector("#Email"));
 
         private IWebElement btnCreateEmployee 
-            => DriverContext.Driver.FindElement(By.XPath("//input[@value='Create']"));
+            => _parallelConfig.Driver.FindElement(By.XPath("//input[@value='Create']"));
 
 
         internal void ClickCreateButton() => btnCreateEmployee.Submit();

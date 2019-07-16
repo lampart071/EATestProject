@@ -5,14 +5,18 @@ namespace CrossPlatformEATest.Pages
 {
     internal class LoginPage : BasePage
     {
+        public LoginPage(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+        }
+
         private IWebElement txtUserName
-            => DriverContext.Driver.FindElement(By.CssSelector("#UserName"));
+            => _parallelConfig.Driver.FindElement(By.CssSelector("#UserName"));
 
         private IWebElement txtPassword
-            => DriverContext.Driver.FindElement(By.CssSelector("#Password"));
+            => _parallelConfig.Driver.FindElement(By.CssSelector("#Password"));
 
         private IWebElement btnLogin
-            => DriverContext.Driver.FindElement(By.CssSelector("input.btn"));
+            => _parallelConfig.Driver.FindElement(By.CssSelector("input.btn"));
 
 
         public void Login(string userName, string password)
@@ -24,7 +28,7 @@ namespace CrossPlatformEATest.Pages
         internal HomePage ClickLoginButton()
         {
             btnLogin.Click();
-            return GetInstance<HomePage>();
+            return new HomePage(_parallelConfig);
         }
     }
 }
