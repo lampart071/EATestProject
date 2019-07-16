@@ -32,7 +32,10 @@ namespace EAAutoFramework.Base
                     DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
                 case BrowserType.Firefox:
+                    //var binary = new FirefoxBinary(@"C:\Program Files\Mozilla Firefox\firefox.exe");
+                    //var profile = new FirefoxProfile();
                     DriverContext.Driver = new FirefoxDriver();
+                    //DriverContext.Driver = new FirefoxDriver(binary, profile);
                     DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
                 case BrowserType.Chrome:

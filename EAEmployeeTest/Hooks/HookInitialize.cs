@@ -9,6 +9,10 @@ using TechTalk.SpecFlow;
 
 namespace EAEmployeeTest
 {
+    //  Both Test Sets - CrossPlatformEATest and EAEmployeeTest are working. 
+    //  EAEmployeeTest need to have working MongoDb and Klov.
+    //  CrossPlatformEATest doesn't have working set for ExtentReport
+
     [Binding]
     public class HookInitialize : TestInitializeHook
     {
