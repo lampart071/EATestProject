@@ -5,10 +5,10 @@ namespace EAAutoFramework.Base
 {
     public abstract class BaseStep : Base
     {
-        public virtual void NavigateSite()
+
+        protected BaseStep(ParallelConfig parallelConfig) : base(parallelConfig)
         {
-            DriverContext.Browser.GotToUrl(Settings.AUT);
-            LogHelpers.Write("Opened the browser !!!");
         }
+
     }
 }

@@ -2,12 +2,12 @@
 
 namespace EAAutoFramework.Base
 {
-    public static class DriverContext
+    public class DriverContext
     {
 
-        private static IWebDriver _driver;
+        private IWebDriver _driver;
 
-        public static IWebDriver Driver
+        public IWebDriver Driver
         {
             get => _driver;
             set => _driver = value;
