@@ -16,6 +16,12 @@ namespace CrossPlatformEATest.Steps
             _parallelConfig = parallelConfig;
         }
 
+        public void NavigateSite()
+        {
+            _parallelConfig.Driver.Navigate().GoToUrl(Settings.AUT);
+            //LogHelpers.Write("Opened the browser !!!");
+        }
+
         [Given(@"I have navigated to the application")]
         public void GivenIHaveNavigatedToTheApplication()
         {
@@ -40,26 +46,26 @@ namespace CrossPlatformEATest.Steps
         public void ThenIClickLink(string linkName)
         {
             if (linkName == "login")
-                _parallelConfig.CurrentPage = CurrentPage.As<HomePage>().ClickLogin();
+                _parallelConfig.CurrentPage = _parallelConfig.CurrentPage.As<HomePage>().ClickLogin();
             else if (linkName == "employeeList")
-                _parallelConfig.CurrentPage = CurrentPage.As<HomePage>().ClickEmployeeList();
+                _parallelConfig.CurrentPage = _parallelConfig.CurrentPage.As<HomePage>().ClickEmployeeList();
         }
 
         [Then(@"I click (.*) button")]
         public void ThenIClickButton(string buttonName)
         {
             if (buttonName == "login")
-                CurrentPage = CurrentPage.As<LoginPage>().ClickLoginButton();
+                _parallelConfig.CurrentPage = _parallelConfig.CurrentPage.As<LoginPage>().ClickLoginButton();
             else if (buttonName == "createnew")
-                CurrentPage = CurrentPage.As<EmployeeListPage>().ClickCreateNew();
+                _parallelConfig.CurrentPage = _parallelConfig.CurrentPage.As<EmployeeListPage>().ClickCreateNew();
             else if (buttonName == "create")
-                CurrentPage.As<CreateEmployeePage>().ClickCreateButton();
+                _parallelConfig.CurrentPage.As<CreateEmployeePage>().ClickCreateButton();
         }
 
         [Then(@"I click log off")]
         public void ThenIClickLogOff()
         {
-            CurrentPage.As<EmployeeListPage>().ClickLogoff();
+            _parallelConfig.CurrentPage.As<EmployeeListPage>().ClickLogoff();
         }
         
     }
