@@ -9,18 +9,24 @@ namespace CrossPlatformEATest.Steps
     [Binding]
     public class LoginSteps : BaseStep
     {
+        private readonly ParallelConfig _parallelConfig;
+
+        public LoginSteps(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+            _parallelConfig = parallelConfig;
+        }
 
         [When(@"I enter UserName and Password")]
         public void WhenIEnterUserNameAndPassword(Table table)
         {
             dynamic data = table.CreateDynamicInstance();
-            CurrentPage.As<LoginPage>().Login(data.UserName, data.Password);
+            _parallelConfig.CurrentPage.As<LoginPage>().Login(data.UserName, data.Password);
         }
 
         [Then(@"I should see the username with hello")]
         public void ThenIShouldSeeTheUsernameWithHello()
         {
-            Console.WriteLine(CurrentPage.As<HomePage>().GetLoggedInUser().Contains("admin")
+            Console.WriteLine(_parallelConfig.CurrentPage.As<HomePage>().GetLoggedInUser().Contains("admin")
                 ? "Success Login"
                 : "Unsuccessful Login");
         }
@@ -28,7 +34,7 @@ namespace CrossPlatformEATest.Steps
         [Then(@"I click logout")]
         public void ThenIClickLogout()
         {
-            CurrentPage.As<HomePage>().ClickLogOff();
+            _parallelConfig.CurrentPage.As<HomePage>().ClickLogOff();
         }
 
     }

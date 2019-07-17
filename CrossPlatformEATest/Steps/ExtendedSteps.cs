@@ -9,12 +9,18 @@ namespace CrossPlatformEATest.Steps
     [Binding]
     internal class ExtendedSteps : BaseStep
     {
-        
+        private readonly ParallelConfig _parallelConfig;
+
+        public ExtendedSteps(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+            _parallelConfig = parallelConfig;
+        }
+
         [Given(@"I have navigated to the application")]
         public void GivenIHaveNavigatedToTheApplication()
         {
             NavigateSite();
-            CurrentPage = GetInstance<HomePage>();
+            _parallelConfig.CurrentPage = new HomePage(_parallelConfig);
         }
 
         [Given(@"I Delete employee '(.*)' before I start running test")]
@@ -27,16 +33,16 @@ namespace CrossPlatformEATest.Steps
         [Given(@"I see application opened")]
         public void GivenISeeApplicationOpened()
         {
-            CurrentPage.As<HomePage>().CheckIfLoginExists();
+            _parallelConfig.CurrentPage.As<HomePage>().CheckIfLoginExists();
         }
 
         [Then(@"I click (.*) link")]
         public void ThenIClickLink(string linkName)
         {
             if (linkName == "login")
-                CurrentPage = CurrentPage.As<HomePage>().ClickLogin();
+                _parallelConfig.CurrentPage = CurrentPage.As<HomePage>().ClickLogin();
             else if (linkName == "employeeList")
-                CurrentPage = CurrentPage.As<HomePage>().ClickEmployeeList();
+                _parallelConfig.CurrentPage = CurrentPage.As<HomePage>().ClickEmployeeList();
         }
 
         [Then(@"I click (.*) button")]
